@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Movie</title>
+	<meta name="description" content="You can search movies using this website.....">
+	<link rel="stylesheet" type="text/css" href="docs/bootstrap.min.css">
+	<style type="text/css">
+		body{
+			padding:0;
+			margin:0;
+			/*font-family: Georgia;*/
+			min-height: 100vh;
+			background-color: #f4f4f4;
+		}
+		#formDiv{
+			margin-top: 40px;
+		}
+		.container{
+			margin:auto;
+			overflow: hidden;
+			width:80%;
+		}
+		#theForm>input{
+			box-sizing: border-box;
+			width:77%;
+			border-color: white;
+			border-style: groove;
+			padding-top: 7px;
+			display: inline-block;
+			padding-top: 4px;
+		}
+		#theForm>input:focus{
+			border-color: #007bff;
+		}
+		#theForm>button{
+			box-sizing:border-box;
+			width: 20%;
+			padding-top:4px;
+		}
+		#movieDescriptionDiv{
+			padding:20px;
+			background-color:white;
+			margin-top: 50px;
+			border-radius: 20px;
+		}
+		.btn{
+			padding-top:4px;
+		}
+		.form-control{
+			box-shadow: none !important;
+		}
+		.flexContainer{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="formDiv">
+			<form id="theForm">
+				<input type="text" name="" placeholder="Enter Movie Name" class="form-control">
+				<button type="submit" class="btn btn-primary">Search</button>
+			</form>
+		</div>
+		<div id="movieDescriptionDiv">
+			<div class="row" style="min-height: 400px;">
+				<div class="col-lg-4" align="center">
+					<div style="margin-top: 10px;">
+						<img src="figs/Black Panther.jpg" height="300px" width="300px" />
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<h2>Dawn Of The Planet Of the Apes</h2>
+					<p><b>IMDB: </b>7.9   <b style="padding-left: 5px;">  Rotten Tomatoes:</b> 68% Fresh</p>
+					<p><b>Description: </b>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi</p>
+					<button class="btn btn-primary">Buy</button>
+					<button class="btn btn-primary">Go to Torrent</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
