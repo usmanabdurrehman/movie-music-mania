@@ -1,88 +1,82 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import "./DashboardPage.css";
-import axios from "axios";
-import Navbar from "../Components/Navbar";
+import Tabs from "../Components/Tabs/Tabs";
+import Movie from "../Components/Movie/Movie";
+import Music from "../Components/Music/Music";
+import { Paper } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import { SocialIcon } from "react-social-icons";
+import {BackGroundContext} from '../../../Contexts/BackGroundContext'
+
+const useStyles = makeStyles({
+	root: {
+		minWidth: 275
+	},
+	bullet: {
+		display: "inline-block",
+		margin: "0 2px",
+		transform: "scale(0.8)"
+	},
+	title: {
+		fontSize: 14
+	},
+	pos: {
+		marginBottom: 12
+	}
+});
 
 export default function DashboardPage() {
-	let [movieName, setMovieName] = useState("");
-	let [isLoading, setIsLoading] = useState(false);
-	let [movieDetails, setMovieDetails] = useState({});
 
-	let grabMovieDetails = e => {
-		e.preventDefault();
-		setIsLoading(true);
-		axios({
-			method: "get",
-			url: `theURL?name=${movieName}`
-		}).then(res => {
-			setMovieDetails(res.data);
-			setIsLoading(false);
-		});
-	};
+	let {bg} = useContext(BackGroundContext)
 
+	const classes = useStyles();
 	return (
-		<div>
-			{/*<Navbar />*/}
-			<div className="container" style={{marginTop:'100px'}}>
-				<div id="formDiv">
-					<form id="theForm" onSubmit={grabMovieDetails}>
-						<div className="row">
-							<div className="col-md-11">
-								<input
-									type="text"
-									onChange={e => {
-										setMovieName(e.target.value);
-									}}
-									placeholder="Enter Movie Name"
-									className="form-control"
-								/>
-							</div>
-							<div className="col-md-1">
-								<button type="submit" className="btn btn-primary">
-									Search
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div id="movieDescriptionDiv">
-					<div className="row">
-						<div className="col-lg-4" align="center">
-							<div style={{ marginTop: "10px", marginBottom: "20px" }}>
-								<img
-									src="figs/Black Panther.jpg"
-									height="300px"
-									width="300px"
-								/>
-							</div>
-						</div>
-						<div className="col-lg-8">
-							<h2>Dawn Of The Planet Of the Apes</h2>
-							<p>
-								<b>IMDB: </b>8.1
-								<b style={{ paddingLeft: "5px" }}> Rotten Tomatoes:</b>{' '}
-								68% Fresh
-							</p>
-							<p>
-								<b>Certification: </b>PG-13
-								
-							</p>
-							<p>
-								<b>Description: </b>Lorem ipsum dolor sit amet,
-								consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad
-								minim veniam, quis nostrud exercitation ullamco laboris
-								nisi
-							</p>
-							<button className="btn btn-primary">Buy</button>
-							<button
-								className="btn btn-primary"
-								style={{ marginLeft: "10px" }}
-							>
-								Go to Torrent
-							</button>
-						</div>
+		<div
+			style={{
+				display: "flex",
+				alignItems: "center",
+				justifyContent: "center",
+				backgroundImage: (bg==false)?(`url(${'movies2.jpg'})`):(`url(${'djcontroller.jpg'})`),
+				transition:'0.3s',
+				backgroundSize:'cover',
+				backgroundRepeat:'no-repeat',
+				backgroundAttachment:'fixed'
+			}}
+		>
+			<div
+				className="row"
+				style={{
+					width: "90%",
+					marginTop: "77px",
+					marginBottom: "77px",
+					minHeight: "500px"
+				}}
+			>
+				<div
+					className="col-lg-3"
+					style={{
+						borderRadius: "0 0 0 20px",
+						// display: "flex",
+						// alignItems: "center",
+						// justifyContent: "center"
+					}}
+					id="banner"
+				>
+					<div style={{
+						width:'25%',
+						position:'fixed',
+						top:'45%'
+					}}>
+						<Typography variant="h4">
+							Search Movies and Music. All in one platform
+						</Typography>
 					</div>
+				</div>
+				<div className="col-lg-9">
+					<Tabs movie={<Movie />} music={<Music />} />
 				</div>
 			</div>
 		</div>

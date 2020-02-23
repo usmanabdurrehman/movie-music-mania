@@ -1,0 +1,46 @@
+#formDiv {
+	margin-top: 20px;
+	/*background-color: transparent;*/
+	/*opacity: 0;*/
+}
+#theForm input {
+	box-sizing: border-box;
+	border-color: white;
+	border-style: groove;
+	padding-top: 7px;
+	border-radius: 5px;
+	display: inline-block;
+	padding-top: 4px;
+}
+#theForm input:focus {
+	border-color: #007bff;
+}
+#theForm button {
+	box-sizing: border-box;
+	padding-top: 4px;
+}
+#DescriptionDiv {
+	/*background-color: transparent;*/
+	/*opacity: 0;*/
+	padding: 20px;
+	background-color: white;
+	margin-top: 30px;
+	border-radius: 20px;
+	/*box-shadow: 5px 5px 20px #ccc;*/
+}
+.btn {
+	padding-top: 4px;
+}
+.form-control {
+	box-shadow: none !important;
+}
+.flexContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#block{
+	/*background-color: transparent;*/
+	/*border-radius: 20px;*/
+}
