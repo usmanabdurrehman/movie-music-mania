@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import "../MovieMusicBlock.css";
-import axios from "axios";
 import Input from "../Input/Input";
 import { MusicContext } from "../../../../Contexts/MusicContext";
 import { MovieContext } from "../../../../Contexts/MovieContext";
