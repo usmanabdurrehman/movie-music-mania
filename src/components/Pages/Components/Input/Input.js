@@ -14,6 +14,7 @@ import BounceLoader from "react-spinners/BounceLoader";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import BeatLoader from "react-spinners/BeatLoader";
+let keys = require('../../../../../keys')
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,7 +59,7 @@ export default function Input(props) {
         url:
           `https://ws.audioscrobbler.com/2.0/?method=track.search&track=` +
           name +
-          `&api_key=a893054f88666f69e7f79e2570c0e8fd&format=json`
+          `&api_key=a`+ keys.musicapikey + `&format=json`
       }).then(res => {
         setIsLoading(false);
         console.log("In then");
@@ -72,7 +73,7 @@ export default function Input(props) {
       axios({
         method: "get",
         url:
-          `https://api.themoviedb.org/3/search/movie?api_key=3bc80f75b19e3d3d8bf52c1158dc6901&query=` +
+          `https://api.themoviedb.org/3/search/movie?api_key=` + keys.movieapikey + `&query=` +
           name
       }).then(res => {
         setIsLoading(false);
@@ -117,3 +118,4 @@ export default function Input(props) {
     </div>
   );
 }
+
