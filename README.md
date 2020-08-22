@@ -6,4 +6,4 @@ For movies => The Movie Database (tmdb) <br>
 For music  => Last.FM
 
 ### `Project link`
-https://hopeful-golick-e7eb8e.netlify.app
+https://moviemusicmania.netlify.app
